@@ -45,8 +45,9 @@ textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid va
 .custom-pin { width: 32px; height: 32px; border-radius: 50% 50% 50% 0; position: absolute; transform: rotate(-45deg); left: 50%; top: 50%; margin: -32px 0 0 -16px; border: 2px solid #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; }
 .pin-icon { transform: rotate(45deg); font-size: 16px; }
 
+/* Stile barra ricerca nera */
 .leaflet-control-geocoder { background: #1a1a1a !important; border: 1px solid var(--border) !important; border-radius: 8px !important; }
-.leaflet-control-geocoder-form input { color: white !important; }
+.leaflet-control-geocoder-form input { color: white !important; background: transparent !important; }
 .leaflet-control-geocoder-icon { filter: invert(1); }
 </style>
 </head>
@@ -135,9 +136,19 @@ textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid va
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
   markersLayer.addTo(map);
 
-  L.Control.geocoder({ defaultMarkGeocode: false, placeholder: "Cerca via..." })
-    .on('markgeocode', e => { map.setView(e.geocode.center, 17); if(marker) map.removeLayer(marker); marker = L.marker(e.geocode.center).addTo(map); })
-    .addTo(map);
+  // RI-AGGIUNTA BARRA RICERCA
+  L.Control.geocoder({
+    defaultMarkGeocode: false,
+    placeholder: "Cerca via...",
+    errorMessage: "Indirizzo non trovato"
+  })
+  .on('markgeocode', function(e) {
+    const latlng = e.geocode.center;
+    map.setView(latlng, 18);
+    if(marker) map.removeLayer(marker);
+    marker = L.marker(latlng).addTo(map);
+  })
+  .addTo(map);
 
   map.on('click', e => { if(marker) map.removeLayer(marker); marker = L.marker(e.latlng).addTo(map); });
 
@@ -151,9 +162,7 @@ textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid va
   };
 
   window.setCat = (el, cat) => { document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active')); el.classList.add('active'); selectedCat = cat; };
-
   window.abilitaGestione = () => { if(prompt("Password Admin:") === "maglie2025") { isAdmin = true; renderData(); } };
-
   window.applyFilter = (f) => { activeFilter = f; renderData(); };
 
   onValue(ref(db, 'segnalazioni'), snap => { rawData = snap.val() || {}; renderData(); });
