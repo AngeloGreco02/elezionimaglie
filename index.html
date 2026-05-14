@@ -57,13 +57,12 @@
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .card { border: 1px solid #ddd; padding: 4px; text-align: center; background: white; height: 110px; border-radius: 4px; }
         
-        /* FIX PER VISUALIZZAZIONE VOLTI */
         .foto-container { 
             width: 100%; 
             height: 75px; 
             margin-bottom: 4px; 
             overflow: hidden; 
-            background: #2c2c2c; /* Sfondo scuro per far risaltare la foto */
+            background: #2c2c2c; 
             border-radius: 2px;
             display: flex;
             align-items: center;
@@ -72,7 +71,7 @@
         .foto-container img { 
             max-width: 100%; 
             max-height: 100%; 
-            object-fit: contain; /* Mostra tutto il volto senza tagliare nulla */
+            object-fit: cover; 
         }
 
         .placeholder { display: flex; align-items: center; justify-content: center; height: 100%; font-size: 9px; color: #aaa; text-transform: uppercase; }
@@ -81,7 +80,7 @@
         .ruolo { font-size: 8px; color: #777; text-transform: uppercase; font-weight: bold; }
         
         .sindaco-box { border: 2px solid #ffd700; padding: 8px; text-align: center; margin-bottom: 10px; background: #fffdf0; }
-        .sindaco-box .foto-container { height: 160px; } /* Più spazio per il volto del sindaco */
+        .sindaco-box .foto-container { height: 160px; }
 
         h2 { font-size: 1rem; border-bottom: 2px solid #ffd700; margin: 0 0 10px 0; text-transform: uppercase; color: #111; }
         .footer-page { position: absolute; bottom: 10px; right: 20px; font-size: 10px; color: #999; }
@@ -107,7 +106,8 @@
         <div class="front">
             <h2>È Ora Maglie</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/G4mS0m2p/marcella-marzano.jpg" alt="Marcella Marzano"></div>
+                <!-- Uso il file caricato su GitHub -->
+                <div class="foto-container"><img src="marcella-marzano.jpeg" alt="Marcella Marzano"></div>
                 <div class="ruolo">Candidata Sindaca</div>
                 <div class="nome">Marcella Marzano</div>
             </div>
@@ -126,15 +126,15 @@
         <div class="front">
             <h2>Insieme</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/6R2M3S8Y/antonio-fitto.jpg" alt="Antonio Fitto"></div>
+                <div class="foto-container"><img src="antonio-fitto.jpg" alt="Antonio Fitto"></div>
                 <div class="ruolo">Candidato Sindaco</div>
                 <div class="nome">Antonio Fitto</div>
             </div>
             <div class="grid">
                 <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Martina Bisanti</span><span class="ruolo">Consigliera</span></div>
                 <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Daniele Biscozzi</span><span class="ruolo">Consigliere</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Jerry Ferramosca</span><span class="ruolo">Consigliere</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Alessandra Fiorentino</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Jerry Ferramosca</span><span class="ruolo">Consigliere[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Alessandra Fiorentino</span><span class="ruolo">Consigliera[cite: 1]</span></div>
             </div>
             <div class="footer-page">Pagina 3</div>
         </div>
@@ -145,15 +145,15 @@
         <div class="front">
             <h2>Maje Noscia</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/8LpXzN8q/sara-de-pascalis.jpg" alt="Sara De Pascalis"></div>
-                <div class="ruolo">Candidata Sindaca</div>
+                <div class="foto-container"><img src="sara-de-pascalis.jpeg" alt="Sara De Pascalis"></div>
+                <div class="ruolo">Candidata Sindaca[cite: 1]</div>
                 <div class="nome">Sara De Pascalis</div>
             </div>
             <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Luca Andriani</span><span class="ruolo">Consigliere</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Natasha Balena</span><span class="ruolo">Consigliera</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Serena Briganti</span><span class="ruolo">Consigliera</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Paolo Colavero</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Luca Andriani</span><span class="ruolo">Consigliere[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Natasha Balena</span><span class="ruolo">Consigliera[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Serena Briganti</span><span class="ruolo">Consigliera[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Paolo Colavero</span><span class="ruolo">Consigliere[cite: 1]</span></div>
             </div>
             <div class="footer-page">Pagina 5</div>
         </div>
@@ -164,26 +164,17 @@
         <div class="front">
             <h2>SìAmo Maglie</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/NgdC41vB/ernesto-toma.jpg" alt="Ernesto Toma"></div>
-                <div class="ruolo">Candidato Sindaco</div>
+                <div class="foto-container"><img src="ernesto-toma.jpg" alt="Ernesto Toma"></div>
+                <div class="ruolo">Candidato Sindaco[cite: 1]</div>
                 <div class="nome">Ernesto Toma</div>
             </div>
             <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Arcangelo Corvaglia</span><span class="ruolo">Consigliere</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Adriana De Rosa</span><span class="ruolo">Consigliera</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Angela D’Oria</span><span class="ruolo">Consigliera</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Felice Fitto</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Arcangelo Corvaglia</span><span class="ruolo">Consigliere[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Adriana De Rosa</span><span class="ruolo">Consigliera[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Angela D’Oria</span><span class="ruolo">Consigliera[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Felice Fitto</span><span class="ruolo">Consigliere[cite: 1]</span></div>
             </div>
             <div class="footer-page">Pagina 7</div>
-        </div>
-    </div>
-
-    <!-- PAGINA FINALE -->
-    <div class="page" style="z-index: 2;">
-        <div class="front cover">
-            <h1>FINE</h1>
-            <p>Elezioni Maglie 2026</p>
-            <button onclick="location.reload()" style="background: #ffd700; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 5px; margin-top: 20px;">RICOMINCIA</button>
         </div>
     </div>
 
