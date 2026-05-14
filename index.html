@@ -57,15 +57,31 @@
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .card { border: 1px solid #ddd; padding: 4px; text-align: center; background: white; height: 110px; border-radius: 4px; }
         
-        .foto-container { width: 100%; height: 75px; margin-bottom: 4px; overflow: hidden; background: #eee; border-radius: 2px; }
-        .foto-container img { width: 100%; height: 100%; object-fit: cover; }
+        /* FIX PER VISUALIZZAZIONE VOLTI */
+        .foto-container { 
+            width: 100%; 
+            height: 75px; 
+            margin-bottom: 4px; 
+            overflow: hidden; 
+            background: #2c2c2c; /* Sfondo scuro per far risaltare la foto */
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .foto-container img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: contain; /* Mostra tutto il volto senza tagliare nulla */
+        }
+
         .placeholder { display: flex; align-items: center; justify-content: center; height: 100%; font-size: 9px; color: #aaa; text-transform: uppercase; }
 
         .nome { color: #000 !important; font-weight: bold; font-size: 10px; text-transform: uppercase; display: block; margin-top: 2px; }
         .ruolo { font-size: 8px; color: #777; text-transform: uppercase; font-weight: bold; }
         
         .sindaco-box { border: 2px solid #ffd700; padding: 8px; text-align: center; margin-bottom: 10px; background: #fffdf0; }
-        .sindaco-box .foto-container { height: 130px; }
+        .sindaco-box .foto-container { height: 160px; } /* Più spazio per il volto del sindaco */
 
         h2 { font-size: 1rem; border-bottom: 2px solid #ffd700; margin: 0 0 10px 0; text-transform: uppercase; color: #111; }
         .footer-page { position: absolute; bottom: 10px; right: 20px; font-size: 10px; color: #999; }
@@ -86,12 +102,12 @@
         </div>
     </div>
 
-    <!-- LISTA: È ORA MAGLIE (1/2) -->
+    <!-- LISTA: È ORA MAGLIE -->
     <div class="page" style="z-index: 10;" onclick="this.classList.add('flipped')">
         <div class="front">
             <h2>È Ora Maglie</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/dJJw8g3f/marcella-marzano.jpg" alt="Marcella Marzano" border="0">d</div>
+                <div class="foto-container"><img src="https://i.ibb.co/G4mS0m2p/marcella-marzano.jpg" alt="Marcella Marzano"></div>
                 <div class="ruolo">Candidata Sindaca</div>
                 <div class="nome">Marcella Marzano</div>
             </div>
@@ -105,133 +121,60 @@
         </div>
     </div>
 
-    <!-- LISTA: È ORA MAGLIE (2/2) -->
-    <div class="page" style="z-index: 9;" onclick="this.classList.add('flipped')">
-        <div class="front">
-            <h2>È Ora Maglie</h2>
-            <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Lara Cesari</span><span class="ruolo">Consigliera</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Luciana Cezza</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Monica De Donno</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Antonio De Iaco</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Dolores De Nitti</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Dario Grassi</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Maurizio Maggio</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Simona Pandinelli</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-            </div>
-            <div class="footer-page">Pagina 2</div>
-        </div>
-    </div>
-
-    <!-- LISTA: INSIEME (1/2) -->
+    <!-- LISTA: INSIEME -->
     <div class="page" style="z-index: 8;" onclick="this.classList.add('flipped')">
         <div class="front">
             <h2>Insieme</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/NgdC41vB/ernesto-toma.jpg" alt="Ernesto Toma"></div>
-    
-                <div class="ruolo">Candidato Sindaco[cite: 1]</div>
+                <div class="foto-container"><img src="https://i.ibb.co/6R2M3S8Y/antonio-fitto.jpg" alt="Antonio Fitto"></div>
+                <div class="ruolo">Candidato Sindaco</div>
                 <div class="nome">Antonio Fitto</div>
             </div>
             <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Martina Bisanti</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Daniele Biscozzi</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Jerry Ferramosca</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Alessandra Fiorentino</span><span class="ruolo">Consigliera[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Martina Bisanti</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Daniele Biscozzi</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Jerry Ferramosca</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Alessandra Fiorentino</span><span class="ruolo">Consigliera</span></div>
             </div>
             <div class="footer-page">Pagina 3</div>
         </div>
     </div>
 
-    <!-- LISTA: INSIEME (2/2) -->
-    <div class="page" style="z-index: 7;" onclick="this.classList.add('flipped')">
-        <div class="front">
-            <h2>Insieme</h2>
-            <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Daniele Gatto</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Franca Giannotti</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Angelo Greco</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Alessandra Loffredo</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Luigi Macagnano</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Anna Maria Mongiò</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Lorenzo Palomba</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Salvatore Ruberti</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-            </div>
-            <div class="footer-page">Pagina 4</div>
-        </div>
-    </div>
-
-    <!-- LISTA: MAJE NOSCIA (1/2) -->
+    <!-- LISTA: MAJE NOSCIA -->
     <div class="page" style="z-index: 6;" onclick="this.classList.add('flipped')">
         <div class="front">
             <h2>Maje Noscia</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/VW93spzd/sara-de-pascalis.jpg" alt="sara de pascalis" border="0">d</div>
-                <div class="ruolo">Candidata Sindaca[cite: 1]</div>
+                <div class="foto-container"><img src="https://i.ibb.co/8LpXzN8q/sara-de-pascalis.jpg" alt="Sara De Pascalis"></div>
+                <div class="ruolo">Candidata Sindaca</div>
                 <div class="nome">Sara De Pascalis</div>
             </div>
             <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Luca Andriani</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Natasha Balena</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Serena Briganti</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Paolo Colavero</span><span class="ruolo">Consigliere[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Luca Andriani</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Natasha Balena</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Serena Briganti</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Paolo Colavero</span><span class="ruolo">Consigliere</span></div>
             </div>
             <div class="footer-page">Pagina 5</div>
         </div>
     </div>
 
-    <!-- LISTA: MAJE NOSCIA (2/2) -->
-    <div class="page" style="z-index: 5;" onclick="this.classList.add('flipped')">
-        <div class="front">
-            <h2>Maje Noscia</h2>
-            <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Maria Teresa De Maggio</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Federica Ferraro</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Maurizio Forte</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Marco Grassi</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Maria Abbondanza Lanzilotto</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Claudio Leanza</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Antonella Panico</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Vincenzo Puzzovio</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-            </div>
-            <div class="footer-page">Pagina 6</div>
-        </div>
-    </div>
-
-    <!-- LISTA: SÌAMO MAGLIE (1/2) -->
+    <!-- LISTA: SÌAMO MAGLIE -->
     <div class="page" style="z-index: 4;" onclick="this.classList.add('flipped')">
         <div class="front">
             <h2>SìAmo Maglie</h2>
             <div class="sindaco-box">
-                <div class="foto-container"><img src="https://i.ibb.co/JW5sQHZC/Ernesto-toma.jpg" alt="Ernesto Toma"></div>
+                <div class="foto-container"><img src="https://i.ibb.co/NgdC41vB/ernesto-toma.jpg" alt="Ernesto Toma"></div>
                 <div class="ruolo">Candidato Sindaco</div>
                 <div class="nome">Ernesto Toma</div>
             </div>
             <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Arcangelo Corvaglia</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Adriana De Rosa</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Angela D’Oria</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Felice Fitto</span><span class="ruolo">Consigliere[cite: 1]</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Arcangelo Corvaglia</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Adriana De Rosa</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Angela D’Oria</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Felice Fitto</span><span class="ruolo">Consigliere</span></div>
             </div>
             <div class="footer-page">Pagina 7</div>
-        </div>
-    </div>
-
-    <!-- LISTA: SÌAMO MAGLIE (2/2) -->
-    <div class="page" style="z-index: 3;" onclick="this.classList.add('flipped')">
-        <div class="front">
-            <h2>SìAmo Maglie</h2>
-            <div class="grid">
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Deborah Fusetti</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Roberta Iasella</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Valeria Leone</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Antonio Logica</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Mariagrazia Maggiorano</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Alessandra Nisi</span><span class="ruolo">Consigliera[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Francesco Paglialonga</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-                <div class="card"><div class="foto-container"><div class="placeholder">FOTO</div></div><span class="nome">Cosimo Puce</span><span class="ruolo">Consigliere[cite: 1]</span></div>
-            </div>
-            <div class="footer-page">Pagina 8</div>
         </div>
     </div>
 
