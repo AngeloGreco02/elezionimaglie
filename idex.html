@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album Figurine - Comunali Maglie 2026</title>
+    <style>
+        :root {
+            --bg-color: #e0e5ec;
+            --card-bg: #ffffff;
+            --text-color: #000000; /* Nomi Neri */
+            --accent-color: #2c3e50;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .album-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Sezione Sindaco */
+        .sindaco-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        /* Stile Figurina */
+        .figurina {
+            background: var(--card-bg);
+            border: 8px solid #fff;
+            box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
+            border-radius: 4px;
+            padding: 10px;
+            width: 180px;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .figurina:hover {
+            transform: rotate(2deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .sindaco-card {
+            width: 240px;
+            border: 10px solid #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .foto-box {
+            background: #ccc;
+            width: 100%;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        /* NOMI NERI */
+        .nome {
+            color: var(--text-color) !important;
+            font-weight: 900;
+            margin: 5px 0;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .ruolo {
+            font-size: 0.75rem;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        /* Griglia Consiglieri */
+        .grid-consiglieri {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            justify-items: center;
+        }
+
+        .numero {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background: var(--accent-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 600px) {
+            .grid-consiglieri { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .figurina { width: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lista: SIAMO MAGLIE</h1>
+    <p>Elezioni Amministrative 2026</p>
+</header>
+
+<div class="album-container">
+    
+    <!-- SINDACO -->
+    <div class="sindaco-wrap">
+        <div class="figurina sindaco-card">
+            <div class="foto-box">FOTO SINDACO</div>
+            <div class="info">
+                <div class="ruolo">Candidato Sindaco</div>
+                <div class="nome">Ernesto Toma</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRIGLIA 16 CONSIGLIERI -->
+    <div class="grid-consiglieri">
+        <!-- Candidato 1 -->
+        <div class="figurina">
+            <div class="numero">1</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info">
+                <div class="nome">Deborah Riculli</div>
+                <div class="ruolo">Consigliere</div>
+            </div>
+        </div>
+
+        <!-- Candidato 2 -->
+        <div class="figurina">
+            <div class="numero">2</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info">
+                <div class="nome">Antonio Fitto</div>
+                <div class="ruolo">Consigliere</div>
+            </div>
+        </div>
+
+        <!-- Ripetere per gli altri nomi... -->
+        <!-- Esempio abbreviato per brevità di codice, aggiungi i restanti nomi nello stesso formato -->
+        <div class="figurina">
+            <div class="numero">3</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Pino Adamuccio</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">4</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Rossano Corvaglia</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">5</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Dario Vincenti</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">6</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Maria Grazia Maggiorano</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">7</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Roberta Iasella</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">8</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Marco Macculi</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">9</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Francesca Carrisi</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">10</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Gabriele Lagna</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">11</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Giovanni Battista De Iaco</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">12</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Lucia Lonoce</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">13</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Vincenzo Casone</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">14</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Sabrina Sguida</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">15</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Mario Vigneri</div><div class="ruolo">Consigliere</div></div>
+        </div>
+        <div class="figurina">
+            <div class="numero">16</div>
+            <div class="foto-box">FOTO</div>
+            <div class="info"><div class="nome">Alessandro Delli Noci</div><div class="ruolo">Consigliere</div></div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
