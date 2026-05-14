@@ -6,33 +6,30 @@
     <title>Album Comunali Maglie 2026</title>
     <style>
         :root {
-            --book-width: 400px;
-            --book-height: 600px;
+            --book-width: 450px;
+            --book-height: 650px;
             --page-bg: #ffffff;
             --gold: #ffd700;
         }
 
         body {
-            background-color: #2c3e50;
+            background-color: #1a1a1a;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             font-family: 'Segoe UI', sans-serif;
-            perspective: 1500px;
+            perspective: 2000px;
         }
 
-        /* CONTENITORE LIBRO */
         .book {
             position: relative;
             width: var(--book-width);
             height: var(--book-height);
-            transition: transform 0.5s;
             transform-style: preserve-3d;
         }
 
-        /* SINGOLA PAGINA */
         .page {
             position: absolute;
             width: 100%;
@@ -40,155 +37,220 @@
             top: 0;
             left: 0;
             background-color: var(--page-bg);
-            box-shadow: 0 0 5px rgba(0,0,0,0.2);
             transform-origin: left;
             transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
             cursor: pointer;
-            user-select: none;
-            overflow-y: auto;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 15px 15px 0;
+            box-shadow: inset 3px 0 10px rgba(0,0,0,0.1);
         }
 
-        .page.flipped {
-            transform: rotateY(-180deg);
-        }
+        .page.flipped { transform: rotateY(-180deg); }
 
-        /* FRONT E BACK DELLA PAGINA */
         .front, .back {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            padding: 20px;
+            padding: 25px;
             box-sizing: border-box;
-        }
-
-        .back {
-            transform: rotateY(180deg);
-            background-color: #f9f9f9;
-        }
-
-        /* COPERTINA */
-        .cover {
-            background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%);
-            color: white;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 5px solid var(--gold);
-            text-align: center;
         }
 
-        /* STILE FIGURINE DENTRO IL LIBRO */
-        .nome { color: #000000 !important; font-weight: 800; text-transform: uppercase; font-size: 0.9rem; margin: 2px 0; }
-        .ruolo { font-size: 0.6rem; color: #666; text-transform: uppercase; font-weight: bold; }
-        .foto-placeholder { background: #ddd; width: 100%; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #999; margin-bottom: 5px; }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
+        .back { transform: rotateY(180deg); background-color: #f0f0f0; border-radius: 15px 0 0 15px; }
 
-        .card {
-            border: 1px solid #eee;
-            padding: 5px;
-            text-align: center;
-            background: #fff;
-        }
+        /* COPERTINE */
+        .cover-front { background: linear-gradient(45deg, #1a1a1a, #444); border: 5px solid var(--gold); color: white; justify-content: center; align-items: center; text-align: center; }
+        .cover-back { background: #1a1a1a; border: 5px solid var(--gold); color: white; justify-content: center; align-items: center; }
 
-        .sindaco-card {
-            border: 2px solid var(--gold);
-            margin-bottom: 15px;
-            padding: 10px;
-        }
+        /* STILE CONTENUTI */
+        h2 { font-size: 1.4rem; color: #000; border-bottom: 3px solid var(--gold); margin-top: 0; text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex-grow: 1; }
+        .card { border: 1px solid #ddd; padding: 5px; text-align: center; background: white; border-radius: 4px; }
+        .foto { background: #eee; width: 100%; aspect-ratio: 3/4; margin-bottom: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #999; }
+        .nome { color: #000 !important; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; display: block; }
+        .ruolo { font-size: 0.6rem; color: #666; text-transform: uppercase; }
+        .sindaco-box { border: 2px solid var(--gold); padding: 10px; margin-bottom: 15px; text-align: center; }
 
-        h2 { font-size: 1.2rem; color: #1a1a1a; border-bottom: 2px solid var(--gold); padding-bottom: 5px; }
-        .istruzioni { position: fixed; bottom: 20px; color: white; opacity: 0.7; }
+        .istruzioni { position: fixed; bottom: 20px; color: var(--gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-<div class="book" id="book">
+<div class="book" id="album">
     
     <!-- PAGINA 1: COPERTINA -->
-    <div class="page" onclick="flipPage(this)">
-        <div class="front cover">
-            <p>Città di Maglie</p>
-            <h1 style="letter-spacing: 3px;">ELEZIONI 2026</h1>
-            <p>L'ALBUM DEI CANDIDATI</p>
-            <small style="margin-top: 50px;">Clicca per sfogliare →</small>
+    <div class="page" style="z-index: 10;" onclick="flip(this)">
+        <div class="front cover-front">
+            <p>CITTÀ DI MAGLIE</p>
+            <h1 style="font-size: 2.5rem; margin: 10px 0;">ELEZIONI 2026</h1>
+            <div style="width: 80px; height: 4px; background: var(--gold); margin: 20px 0;"></div>
+            <p>ALBUM DEI CANDIDATI</p>
+            <p style="font-size: 0.8rem; margin-top: 50px; opacity: 0.6;">CLICCA PER APRIRE</p>
         </div>
         <div class="back">
             <h2>È Ora Maglie</h2>
-            <div class="card sindaco-card">
-                <div class="foto-placeholder">FOTO</div>
+            <div class="sindaco-box">
+                <div class="foto">FOTO</div>
                 <div class="ruolo">Candidata Sindaca</div>
                 <div class="nome">Marcella Marzano</div>
             </div>
-            <p style="font-size: 0.7rem;">Gira pagina per i consiglieri...</p>
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">R. Aloisio</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">S. Caloro</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">D. Cancella</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">G. Catalano</span><span class="ruolo">Consigliere</span></div>
+            </div>
         </div>
     </div>
 
-    <!-- PAGINA 2: CONSIGLIERI È ORA MAGLIE -->
-    <div class="page" onclick="flipPage(this)">
+    <!-- PAGINA 2: È ORA MAGLIE (Cont.) -->
+    <div class="page" style="z-index: 9;" onclick="flip(this)">
         <div class="front">
             <div class="grid">
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">R. Aloisio</div><div class="ruolo">Consigliere</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">S. Caloro</div><div class="ruolo">Consigliere</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">D. Cancella</div><div class="ruolo">Consigliera</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">G. Catalano</div><div class="ruolo">Consigliere</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">L. Cesari</div><div class="ruolo">Consigliera</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">L. Cezza</div><div class="ruolo">Consigliera</div></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">L. Cesari</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">L. Cezza</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. De Donno</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. De Iaco</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">D. De Nitti</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">D. Grassi</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. Maggio</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">S. Pandinelli</span><span class="ruolo">Consigliera</span></div>
             </div>
         </div>
         <div class="back">
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">C. Portaluri</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">L. Presicce</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">N. Rinaldi</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. Spano</span><span class="ruolo">Consigliera</span></div>
+            </div>
+            <div style="margin-top: 20px; border-top: 2px dashed #ccc; padding-top: 10px; text-align: center;">
+                <p style="font-size: 0.8rem;">FINE LISTA 1</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGINA 3: INSIEME -->
+    <div class="page" style="z-index: 8;" onclick="flip(this)">
+        <div class="front">
             <h2>Insieme</h2>
-            <div class="card sindaco-card">
-                <div class="foto-placeholder">FOTO</div>
+            <div class="sindaco-box">
+                <div class="foto">FOTO</div>
                 <div class="ruolo">Candidato Sindaco</div>
                 <div class="nome">Antonio Fitto</div>
             </div>
-            <p style="font-size: 0.7rem;">Gira pagina per i consiglieri...</p>
-        </div>
-    </div>
-
-    <!-- PAGINA 3: CONSIGLIERI INSIEME -->
-    <div class="page" onclick="flipPage(this)">
-        <div class="front">
             <div class="grid">
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">M. Bisanti</div><div class="ruolo">Consigliera</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">A. Greco</div><div class="ruolo">Consigliere</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">D. Gatto</div><div class="ruolo">Consigliere</div></div>
-                <div class="card"><div class="foto-placeholder">FOTO</div><div class="nome">F. Giannotti</div><div class="ruolo">Consigliera</div></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. Bisanti</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">D. Biscozzi</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">J. Ferramosca</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Fiorentino</span><span class="ruolo">Consigliera</span></div>
             </div>
         </div>
         <div class="back">
-            <h2>Maje Noscia</h2>
-            <div class="card sindaco-card">
-                <div class="foto-placeholder">FOTO</div>
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">D. Gatto</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">F. Giannotti</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Greco</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Loffredo</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">L. Macagnano</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. M. Mongiò</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">L. Palomba</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">S. Ruberti</span><span class="ruolo">Consigliere</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGINA 4: INSIEME (Cont.) + MAJE NOSCIA -->
+    <div class="page" style="z-index: 7;" onclick="flip(this)">
+        <div class="front">
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">E. Scarpello</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">V. Sicuro</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Stefanelli</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">D. Toma</span><span class="ruolo">Consigliera</span></div>
+            </div>
+            <h2 style="margin-top: 30px;">Maje Noscia</h2>
+            <div class="sindaco-box">
+                <div class="foto">FOTO</div>
                 <div class="ruolo">Candidata Sindaca</div>
                 <div class="nome">Sara De Pascalis</div>
             </div>
+        </div>
+        <div class="back">
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">L. Andriani</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">N. Balena</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">S. Briganti</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">P. Colavero</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. T. De Maggio</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">F. Ferraro</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. Forte</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. Grassi</span><span class="ruolo">Consigliere</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGINA 5: MAJE NOSCIA (Cont.) + SÌAMO MAGLIE -->
+    <div class="page" style="z-index: 6;" onclick="flip(this)">
+        <div class="front">
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. A. Lanzilotto</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">C. Leanza</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Panico</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">V. Puzzovio</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. A. Ruggeri</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">S. Stefanizzi</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">E. Surdo</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">G. Tronci</span><span class="ruolo">Consigliera</span></div>
+            </div>
+        </div>
+        <div class="back">
+            <h2>SìAmo Maglie</h2>
+            <div class="sindaco-box">
+                <div class="foto">FOTO</div>
+                <div class="ruolo">Candidato Sindaco</div>
+                <div class="nome">Ernesto Toma</div>
+            </div>
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Corvaglia</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. De Rosa</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. D’Oria</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">F. Fitto</span><span class="ruolo">Consigliere</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGINA 6: SÌAMO MAGLIE (Cont.) + RETROCOPERTINA -->
+    <div class="page" style="z-index: 5;" onclick="flip(this)">
+        <div class="front">
+            <div class="grid">
+                <div class="card"><div class="foto">FOTO</div><span class="nome">D. Fusetti</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">R. Iasella</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">V. Leone</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Logica</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">M. Maggiorano</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">A. Nisi</span><span class="ruolo">Consigliera</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">F. Paglialonga</span><span class="ruolo">Consigliere</span></div>
+                <div class="card"><div class="foto">FOTO</div><span class="nome">C. Puce</span><span class="ruolo">Consigliere</span></div>
+            </div>
+        </div>
+        <div class="back cover-back">
+            <p>ALBUM ELETTORALE 2026</p>
+            <div style="width: 50px; height: 2px; background: var(--gold); margin: 20px 0;"></div>
+            <p style="font-size: 0.8rem; opacity: 0.5;">Fine della consultazione</p>
+            <small style="margin-top: 40px;">Maglie, 2026</small>
         </div>
     </div>
 
 </div>
 
-<div class="istruzioni">Clicca sulle pagine per sfogliare avanti e indietro</div>
+<div class="istruzioni">Tocca la pagina per sfogliare</div>
 
 <script>
-    function flipPage(page) {
-        if (page.classList.contains('flipped')) {
-            page.classList.remove('flipped');
-            // Gestione z-index per sovrapposizione corretta al ritorno
-            setTimeout(() => { page.style.zIndex = ""; }, 500);
-        } else {
-            page.classList.add('flipped');
-            page.style.zIndex = "100";
-        }
+    function flip(page) {
+        page.classList.toggle('flipped');
     }
 </script>
 
