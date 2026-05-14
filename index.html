@@ -6,134 +6,136 @@
     <title>Album Figurine - Comunali Maglie 2026</title>
     <style>
         :root {
-            --bg-color: #e0e5ec;
+            --bg-color: #f4f7f6;
             --card-bg: #ffffff;
             --text-color: #000000; /* Nomi Neri */
-            --accent-color: #2c3e50;
+            --accent-color: #1a1a1a;
+            --border-color: #ffffff;
         }
 
         body {
             background-color: var(--bg-color);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
             color: #333;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         h1 {
             color: var(--accent-color);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
         }
 
         .album-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Sezione Sindaco */
         .sindaco-wrap {
             display: flex;
             justify-content: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
-        /* Stile Figurina */
         .figurina {
             background: var(--card-bg);
-            border: 8px solid #fff;
-            box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #ffffff;
-            border-radius: 4px;
-            padding: 10px;
-            width: 180px;
-            transition: transform 0.3s ease;
+            border: 10px solid var(--border-color);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            padding: 12px;
+            width: 200px;
+            transition: all 0.3s ease;
             position: relative;
         }
 
         .figurina:hover {
-            transform: rotate(2deg) scale(1.05);
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
             z-index: 10;
         }
 
         .sindaco-card {
-            width: 240px;
-            border: 10px solid #fff;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            width: 280px;
+            border-color: #ffd700;
         }
 
         .foto-box {
-            background: #ccc;
+            background: #e0e0e0;
             width: 100%;
             aspect-ratio: 3/4;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            text-transform: uppercase;
         }
 
         .info {
             text-align: center;
         }
 
-        /* NOMI NERI */
         .nome {
             color: var(--text-color) !important;
-            font-weight: 900;
-            margin: 5px 0;
+            font-weight: 800;
+            margin: 8px 0;
             font-size: 1.1rem;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .ruolo {
-            font-size: 0.75rem;
-            color: #777;
+            font-size: 0.7rem;
+            color: #999;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Griglia Consiglieri */
         .grid-consiglieri {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
             justify-items: center;
         }
 
         .numero {
             position: absolute;
-            top: -5px;
-            left: -5px;
-            background: var(--accent-color);
+            top: -12px;
+            left: -12px;
+            background: #000;
             color: white;
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: bold;
             border-radius: 50%;
+            border: 2px solid #fff;
         }
 
         @media (max-width: 600px) {
             .grid-consiglieri { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-            .figurina { width: 140px; }
+            .figurina { width: 100%; box-sizing: border-box; }
+            .sindaco-card { width: 200px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Lista: SIAMO MAGLIE</h1>
-    <p>Elezioni Amministrative 2026</p>
+    <h1>SìAmo Maglie</h1>
+    <p>Elezioni Comunali 2026 - Candidato Sindaco: Ernesto Toma</p>
 </header>
 
 <div class="album-container">
@@ -141,7 +143,7 @@
     <!-- SINDACO -->
     <div class="sindaco-wrap">
         <div class="figurina sindaco-card">
-            <div class="foto-box">FOTO SINDACO</div>
+            <div class="foto-box">Foto Sindaco</div>
             <div class="info">
                 <div class="ruolo">Candidato Sindaco</div>
                 <div class="nome">Ernesto Toma</div>
@@ -151,99 +153,22 @@
 
     <!-- GRIGLIA 16 CONSIGLIERI -->
     <div class="grid-consiglieri">
-        <!-- Candidato 1 -->
-        <div class="figurina">
-            <div class="numero">1</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info">
-                <div class="nome">Deborah Riculli</div>
-                <div class="ruolo">Consigliere</div>
-            </div>
-        </div>
-
-        <!-- Candidato 2 -->
-        <div class="figurina">
-            <div class="numero">2</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info">
-                <div class="nome">Antonio Fitto</div>
-                <div class="ruolo">Consigliere</div>
-            </div>
-        </div>
-
-        <!-- Ripetere per gli altri nomi... -->
-        <!-- Esempio abbreviato per brevità di codice, aggiungi i restanti nomi nello stesso formato -->
-        <div class="figurina">
-            <div class="numero">3</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Pino Adamuccio</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">4</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Rossano Corvaglia</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">5</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Dario Vincenti</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">6</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Maria Grazia Maggiorano</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">7</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Roberta Iasella</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">8</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Marco Macculi</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">9</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Francesca Carrisi</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">10</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Gabriele Lagna</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">11</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Giovanni Battista De Iaco</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">12</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Lucia Lonoce</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">13</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Vincenzo Casone</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">14</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Sabrina Sguida</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">15</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Mario Vigneri</div><div class="ruolo">Consigliere</div></div>
-        </div>
-        <div class="figurina">
-            <div class="numero">16</div>
-            <div class="foto-box">FOTO</div>
-            <div class="info"><div class="nome">Alessandro Delli Noci</div><div class="ruolo">Consigliere</div></div>
-        </div>
-
+        <div class="figurina"><div class="numero">1</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Arcangelo Corvaglia</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">2</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Adriana De Rosa</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">3</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Angela D’Oria</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">4</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Felice Fitto</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">5</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Deborah Fusetti</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">6</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Roberta Iasella</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">7</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Valeria Leone</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">8</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Antonio Logica</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">9</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Mariagrazia Maggiorano</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">10</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Alessandra Nisi</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">11</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Francesco Paglialonga</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">12</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Cosimo Puce</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">13</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Rossano Rizzo</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">14</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Stefano Rizzo</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">15</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Marco Sticchi</div><div class="ruolo">Consigliere</div></div></div>
+        <div class="figurina"><div class="numero">16</div><div class="foto-box">FOTO</div><div class="info"><div class="nome">Christian Toma</div><div class="ruolo">Consigliere</div></div></div>
     </div>
 </div>
 
